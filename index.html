@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Fuga da Polícia</title>
+</head>
+<body>
+    <main>
+        <!-- Primeira escolha: Beco escuro -->
+        <div class="passo ativo" id="passo-0">
+            <img src="tbn:ANd9GcRwYPpD9vfQWGvFWYy9P-L_w8gEf_OHAL4XUg&s" alt="Cena de perseguição policial">
+            <p>Você acabou de realizar um roubo e está em um beco escuro. A polícia está se aproximando rapidamente e você precisa decidir o que fazer!</p>
+            <button class="btn-proximo" data-proximo="1">Fugir para o estacionamento e tentar roubar um carro</button>
+            <button class="btn-proximo" data-proximo="2">Se esconder no depósito abandonado ao lado</button>
+        </div>
+
+        <!-- Segunda escolha: Estacionamento -->
+        <div class="passo" id="passo-1">
+            <p>Você encontra um carro com a chave na ignição no estacionamento. Ao entrar no carro e começar a dirigir, percebe que a polícia está no seu encalço!</p>
+            <button class="btn-proximo" data-proximo="3">Acelerar pela estrada principal</button>
+            <button class="btn-proximo" data-proximo="4">Pegar um atalho pelo bairro residencial</button>
+        </div>
+
+        <!-- Segunda escolha: Depósito -->
+        <div class="passo" id="passo-2">
+            <p>Você se esconde no depósito abandonado, ouvindo a polícia revistar o beco. Eles não te encontraram ainda, mas você precisa decidir o próximo movimento.</p>
+            <button class="btn-proximo" data-proximo="5">Tentar escapar pelo telhado</button>
+            <button class="btn-proximo" data-proximo="6">Continuar escondido e esperar a polícia ir embora</button>
+        </div>
+
+        <!-- Cenário de captura: Estrada principal -->
+        <div class="passo" id="passo-3">
+            <p>Ao acelerar pela estrada principal, a polícia consegue bloquear todas as saídas e você é capturado. Fim de jogo!</p>
+            <button class="btn-recomeco" data-proximo="0" onclick="resultadoFinal('capturado')">Tentar de novo</button>
+        </div>
+
+        <!-- Cenário de vitória: Atalho -->
+        <div class="passo" id="passo-4">
+            <p>Você pega o atalho pelo bairro residencial e, por sorte, consegue despistar a polícia. Parabéns, você escapou!</p>
+            <button class="btn-recomeco" data-proximo="0" onclick="resultadoFinal('escapou')">Jogar novamente</button>
+        </div>
+
+        <!-- Cenário de fuga: Telhado -->
+        <div class="passo" id="passo-5">
+            <p>Você escala pelo telhado e observa a polícia se afastando. Parabéns, você escapou por pouco!</p>
+            <button class="btn-recomeco" data-proximo="0" onclick="resultadoFinal('escapou')">Jogar novamente</button>
+        </div>
+
+        <!-- Cenário de captura: Esconder-se -->
+        <div class="passo" id="passo-6">
+            <p>Você decide continuar escondido, mas a polícia revisa o depósito e você acaba sendo capturado. Fim de jogo!</p>
+            <button class="btn-recomeco" data-proximo="0" onclick="resultadoFinal('capturado')">Tentar de novo</button>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
